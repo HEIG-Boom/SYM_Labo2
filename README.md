@@ -33,7 +33,7 @@ Un protocole comporte toujours 2 aspects, comme le modèle OSI le montre de mani
 Une application professionnelle doit, dans la mesure du possible, permettre un travail aussi en l'absence de réseau. On voit mal un médecin se trouver dans l'incapacité de dicter des notes ou une ordonnance pour un patient simplement parce qu'il se trouve dans une campagne trop isolée pour intéresser les opérateurs de télécommunications. De manière similaire, un fonctionnaire des douanes ne peut pas interrompre le déchargement d'un avion-cargo parce qu'une indisponibilité de réseau l'empêche de documenter les produits qui sont extraits des cales.
 Le service applicatif se doit donc de comporter une fonction de cache efficace, sûre et aussi transparente que possible. Cette fonctionnalité est contenue, dans la figure ci-dessus dans le Thread représenté par le bloc rouge.
 
-## Le serveur
+## Le serveur
 
 Le serveur est moins conditionné par cette notion de synchronisme ou asynchronisme du service, car généralement il n'a que cela à faire : attendre une communication et y répondre.
 
@@ -181,7 +181,7 @@ méthodes d’accès utilisées précédemment : /text, /json et /xml), vous dev
 `X-Content-Encoding: deflate` et compresser le corps de votre POST avec un 
 `DeflaterOutputStream(package java.util.zip)`, le contenu que le serveur vous retournera sera aussi accompagné de l’en-tête `X-Content-Encoding` correspondante et vous devrez décompresser le contenu à l’aide d’un `InflaterInputStream`. Attention, le contenu compressé ne devra pas être wrappé avec les en-têtes et le checksum ZLIB.
 
-## Questions
+## Questions
 
 ### Traitement des erreurs
 
