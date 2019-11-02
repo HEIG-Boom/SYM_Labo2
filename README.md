@@ -191,7 +191,7 @@ Les classes et interfaces `SymComManager` et `CommunicationEventListener` utilis
 
 Si une authentification par le serveur est requise, peut-on utiliser un protocole asynchrone ? Quelles seraient les restrictions ? Peut-on utiliser une transmission différée ?
 
-### Threads concurrents
+### Threads concurrents
 
 Lors de l'utilisation de protocoles asynchrones, c'est généralement deux threads différents qui se préoccupent de la préparation, de l'envoi, de la réception et du traitement des données. Quels problèmes cela peut-il poser ?
 
