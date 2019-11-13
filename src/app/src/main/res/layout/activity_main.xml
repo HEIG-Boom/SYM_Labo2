@@ -13,7 +13,7 @@
         android:layout_marginStart="95dp"
         android:layout_marginLeft="95dp"
         android:layout_marginTop="139dp"
-        android:text="Transmission asynchrone"
+        android:text="@string/asynchronous_activity_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
         android:layout_marginLeft="95dp"
-        android:text="Transmission différée"
+        android:text="@string/delayed_activity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAsynchronous" />
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
         android:layout_marginLeft="95dp"
-        android:text="Transmission d'objet"
+        android:text="@string/object_activity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDelayed" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
         android:layout_marginLeft="95dp"
-        android:text="Transmission compressée"
+        android:text="@string/compressed_activity_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnObject" />
 
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
         android:layout_marginLeft="95dp"
-        android:text="GraphQL"
+        android:text="@string/graphql_activity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCompressed" />
 

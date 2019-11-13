@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Labo2</string>
     <string name="asynchronous_activity_title">Asynchronous Activity</string>
+    <string name="compressed_activity_title">Compressed Activity</string>
+    <string name="delayed_activity">Delayed Activity</string>
+    <string name="object_activity">Object Activity</string>
+    <string name="graphql_activity">GraphQL Activity</string>
     <string name="delayed_activity_title">Delayed Activity</string>
     <string name="write_request">Write your text :</string>
     <string name="send">Send</string>
+
 </resources>
