@@ -61,12 +61,6 @@ public class SymComManager extends AsyncTask<Request, Void, String> {
 
     protected void onPostExecute(String args) {
         super.onPostExecute(args);
-
-        try {
-            communicationEventListener.handleServerResponse(response);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        communicationEventListener.handleServerResponse(response);
     }
 }
