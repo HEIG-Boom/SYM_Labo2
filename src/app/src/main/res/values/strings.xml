@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Labo2</string>
     <string name="asynchronous_activity_title">Asynchronous Activity</string>
+    <string name="delayed_activity_title">Delayed Activity</string>
     <string name="write_request">Write your text :</string>
     <string name="send">Send</string>
 </resources>
