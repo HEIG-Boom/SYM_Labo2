@@ -8,5 +8,9 @@
     <string name="delayed_activity_title">Delayed Activity</string>
     <string name="write_request">Write your text :</string>
     <string name="send">Send</string>
+    <string name="objectTitle">Object Activity</string>
+    <string name="objectFirstName">First name :</string>
+    <string name="objectName">Last name :</string>
+    <string name="objectPhoneNumber">Phone :</string>
 
 </resources>
