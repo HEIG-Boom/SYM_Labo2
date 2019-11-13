@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class SymComManager extends AsyncTask<Request, Void, String> {
     private static final String TAG = SymComManager.class.getSimpleName();
@@ -33,7 +36,13 @@ public class SymComManager extends AsyncTask<Request, Void, String> {
             con.setDoInput(true);
             con.setRequestMethod("POST");
             con.setChunkedStreamingMode(0);
-            con.setRequestProperty("Content-Type", requests[0].getContentType());
+
+            HashMap<String, String> header = requests[0].getHeaders();
+            Iterator it = header.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<String, String> pair = (Map.Entry) it.next();
+                con.setRequestProperty(pair.getKey(), pair.getValue());
+            }
 
             BufferedOutputStream writer = new BufferedOutputStream(con.getOutputStream());
             writer.write(requests[0].getData().getBytes());

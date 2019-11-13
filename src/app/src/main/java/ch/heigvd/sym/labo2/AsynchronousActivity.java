@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 import ch.heigvd.sym.labo2.comm.Request;
 import ch.heigvd.sym.labo2.comm.SymComManager;
 
@@ -38,7 +40,9 @@ public class AsynchronousActivity extends AppCompatActivity {
 
         sendBtn.setOnClickListener((v) -> {
             SymComManager mcm = new SymComManager();
-            Request request = new Request("http://sym.iict.ch/rest/txt", editTextArea.getText().toString(), "text/plain");
+            HashMap<String, String> headers = new HashMap();
+            headers.put("Content-Type", "text/plain");
+            Request request = new Request("http://sym.iict.ch/rest/txt", editTextArea.getText().toString(), headers);
             mcm.setCommunicationEventListener(
                     response -> {
                         requestTextArea.setText(response);

@@ -1,14 +1,16 @@
 package ch.heigvd.sym.labo2.comm;
 
+import java.util.HashMap;
+
 public class Request {
     private String url;
     private String data;
-    private String contentType;
+    private HashMap<String, String> headers;
 
-    public Request(String url, String data, String contentType) {
+    public Request(String url, String data, HashMap headers) {
         this.url = url;
         this.data = data;
-        this.contentType = contentType;
+        this.headers = headers;
     }
 
     public String getUrl() {
@@ -19,7 +21,7 @@ public class Request {
         return this.data;
     }
 
-    public String getContentType() {
-        return this.contentType;
+    public HashMap<String, String> getHeaders() {
+        return this.headers;
     }
 }
