@@ -5,8 +5,8 @@ import java.util.EventListener;
 /**
  * Interface definition of an event listener
  *
- * @since 2019-11-08
  * @version 1.0
+ * @since 2019-11-08
  */
 public interface CommunicationEventListener extends EventListener {
     /**

@@ -18,9 +18,9 @@ public class Request {
     /**
      * Constructor of the request
      *
-     * @param url         request's URL
-     * @param data        request's data
-     * @param headers     request's headers
+     * @param url     request's URL
+     * @param data    request's data
+     * @param headers request's headers
      */
     public Request(String url, String data, HashMap headers) {
         this.url = url;
