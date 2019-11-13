@@ -26,6 +26,8 @@ public class AsynchronousActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Load the layout
         setContentView(R.layout.activity_asynchronous);
 
         editTextArea = findViewById(R.id.editText);
