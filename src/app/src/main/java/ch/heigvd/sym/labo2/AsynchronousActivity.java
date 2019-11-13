@@ -11,11 +11,18 @@ import android.widget.TextView;
 import ch.heigvd.sym.labo2.comm.Request;
 import ch.heigvd.sym.labo2.comm.SymComManager;
 
+/**
+ * Asynchronous activity class used to make asynchronous communication to the server
+ */
 public class AsynchronousActivity extends AppCompatActivity {
-    private Button sendBtn;
+    // Graphics components
     private EditText editTextArea;
     private TextView requestTextArea;
 
+    /**
+     * Method called on creation of the activity.
+     * Used to bind the communication event listener to the activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +30,7 @@ public class AsynchronousActivity extends AppCompatActivity {
 
         editTextArea = findViewById(R.id.editText);
         requestTextArea = findViewById(R.id.responseText);
-        sendBtn = findViewById(R.id.sendButton);
+        Button sendBtn = findViewById(R.id.sendButton);
 
         requestTextArea.setMovementMethod(new ScrollingMovementMethod());
 
