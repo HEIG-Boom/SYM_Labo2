@@ -31,8 +31,8 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="297dp"
-        android:layout_height="186dp"
+        android:layout_width="293dp"
+        android:layout_height="50dp"
         android:layout_marginStart="57dp"
         android:layout_marginLeft="57dp"
         android:layout_marginTop="11dp"
@@ -41,20 +41,6 @@
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subtitle" />
-
-    <EditText
-        android:id="@+id/responseText"
-        android:layout_width="297dp"
-        android:layout_height="186dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="29dp"
-        android:focusable="false"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendButton" />
 
     <Button
         android:id="@+id/sendButton"
@@ -66,4 +52,16 @@
         android:text="Send"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <TextView
+        android:id="@+id/responseText"
+        android:layout_width="295dp"
+        android:layout_height="346dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="31dp"
+        android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
