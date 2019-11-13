@@ -41,7 +41,7 @@ public class AsynchronousActivity extends AppCompatActivity {
 
         sendBtn.setOnClickListener((v) -> {
             SymComManager mcm = new SymComManager();
-            HashMap<String, String> headers = new HashMap();
+            HashMap<String, String> headers = new HashMap<>();
             headers.put("Content-Type", "text/plain");
             Request request = new Request("http://sym.iict.ch/rest/txt", editText.getText().toString(), headers);
             mcm.setCommunicationEventListener(
