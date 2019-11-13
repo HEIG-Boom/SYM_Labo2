@@ -16,14 +16,11 @@ import java.util.Map;
  * Communication manager class, uses an event listener to handle the response
  *
  * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
- * @since 2019-11-08
  * @version 1.0
+ * @since 2019-11-08
  */
 public class SymComManager extends AsyncTask<Request, Void, String> {
-    private static final String TAG = SymComManager.class.getSimpleName();
-
     private String response = "";
-
     private CommunicationEventListener communicationEventListener = null;
 
     /**
@@ -77,7 +74,7 @@ public class SymComManager extends AsyncTask<Request, Void, String> {
                 byte[] contents = new byte[1024];
 
                 int bytesRead = 0;
-                while((bytesRead = reader.read(contents)) != -1) {
+                while ((bytesRead = reader.read(contents)) != -1) {
                     response += new String(contents, 0, bytesRead);
                 }
             }
