@@ -1,7 +1,9 @@
 package ch.heigvd.sym.labo2;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -90,6 +92,9 @@ public class ObjectActivity extends AppCompatActivity {
 
 
         btn.setOnClickListener((v) -> {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
             SymComManager mcm = new SymComManager();
 
             Person person = new Person(lastName.getText().toString(), firstName.getText().toString(), "John", "male", phone.getText().toString());

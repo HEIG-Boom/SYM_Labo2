@@ -2,7 +2,9 @@ package ch.heigvd.sym.labo2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.text.method.ScrollingMovementMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -70,6 +72,9 @@ public class DelayedActivity extends AppCompatActivity {
 
         // Set up button action
         sendBtn.setOnClickListener((v) -> {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
             // Create request and store it in request list
             HashMap<String, String> headers = new HashMap<>();
             headers.put("Content-Type", "text/plain");
