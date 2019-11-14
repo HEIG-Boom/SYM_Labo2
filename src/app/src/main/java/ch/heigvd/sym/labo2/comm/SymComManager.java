@@ -74,7 +74,6 @@ public class SymComManager extends AsyncTask<Request, Void, String> {
 
             OutputStream writer;
             if (header.containsKey("X-Network")) {
-                System.out.println("hello");
                 Deflater deflate = new Deflater(Deflater.DEFAULT_COMPRESSION,true);
                 writer = new DeflaterOutputStream(con.getOutputStream(), deflate);
             } else {
