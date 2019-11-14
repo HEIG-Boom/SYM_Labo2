@@ -37,6 +37,7 @@ import ch.heigvd.sym.labo2.comm.SymComManager;
 public class DelayedActivity extends AppCompatActivity {
     // Rate at which to try again when no internet connectivity
     private static final int SCHEDULE_RATE = 2;
+    // Server address
     private static final String SERVER = "http://sym.iict.ch/rest/txt";
 
     // Graphics components
@@ -81,7 +82,8 @@ public class DelayedActivity extends AppCompatActivity {
     /**
      * Check whether the network is available by connecting to web socket
      * <p>
-     * source: https://stackoverflow.com/questions/1560788/how-to-check-internet-access-on-android-inetaddress-never-times-out?page=1&tab=votes#tab-top
+     * source: https://stackoverflow.com/questions/1560788/
+     * how-to-check-internet-access-on-android-inetaddress-never-times-out?page=1&tab=votes#tab-top
      *
      * @return false if no interface is connected, true if one is
      */
