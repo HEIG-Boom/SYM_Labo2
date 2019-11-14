@@ -42,6 +42,13 @@ import ch.heigvd.sym.labo2.comm.Request;
 import ch.heigvd.sym.labo2.comm.SymComManager;
 import ch.heigvd.sym.labo2.model.Person;
 
+/**
+ * Object activity class used to transfer Java Object with the server
+ *
+ * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
+ * @version 1.0
+ * @since 2019-11-08
+ */
 public class ObjectActivity extends AppCompatActivity {
 
     private Button btn;
@@ -56,6 +63,11 @@ public class ObjectActivity extends AppCompatActivity {
     private RadioButton JSON;
     private RadioButton XML;
 
+    /**
+     * Method called on creation of the activity.
+     * Serialize an object representing a person and serialize it in JSON or XML,
+     * depending on the user choice. Send data to the server and display the response
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,11 +186,7 @@ public class ObjectActivity extends AppCompatActivity {
                     headers.put("Content-Type", "application/xml");
 
                     request = new Request("http://sym.iict.ch/rest/xml", sw.toString(), headers);
-                } catch (ParserConfigurationException e) {
-                    e.printStackTrace();
-                } catch (TransformerConfigurationException e) {
-                    e.printStackTrace();
-                } catch (TransformerException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -220,11 +228,7 @@ public class ObjectActivity extends AppCompatActivity {
                                             + "\nPhone number : " + eElement.getElementsByTagName("phone").item(0).getTextContent();
                                     tv.setText(displayResponse);
                                 }
-                            } catch (ParserConfigurationException e) {
-                                e.printStackTrace();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            } catch (SAXException e) {
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
 
