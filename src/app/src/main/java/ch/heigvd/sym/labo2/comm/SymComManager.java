@@ -5,12 +5,19 @@ import android.os.AsyncTask;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.zip.Deflater;
+import java.util.zip.DeflaterInputStream;
+import java.util.zip.DeflaterOutputStream;
+import java.util.zip.Inflater;
+import java.util.zip.InflaterInputStream;
 
 /**
  * Communication manager class, uses an event listener to handle the response
@@ -59,17 +66,34 @@ public class SymComManager extends AsyncTask<Request, Void, String> {
 
             HashMap<String, String> header = requests[0].getHeaders();
             Iterator it = header.entrySet().iterator();
+
             while (it.hasNext()) {
                 Map.Entry<String, String> pair = (Map.Entry) it.next();
                 con.setRequestProperty(pair.getKey(), pair.getValue());
             }
 
-            BufferedOutputStream writer = new BufferedOutputStream(con.getOutputStream());
+            OutputStream writer;
+            if (header.containsKey("X-Network")) {
+                System.out.println("hello");
+                Deflater deflate = new Deflater(Deflater.DEFAULT_COMPRESSION,true);
+                writer = new DeflaterOutputStream(con.getOutputStream(), deflate);
+            } else {
+                writer = new BufferedOutputStream(con.getOutputStream());
+            }
+
             writer.write(requests[0].getData().getBytes());
             writer.flush();
+            writer.close();
+
 
             if (con.getResponseCode() == 200) {
-                BufferedInputStream reader = new BufferedInputStream(con.getInputStream());
+                InputStream reader;
+                if (header.containsKey("X-Network")) {
+                    Inflater inflater = new Inflater(true);
+                    reader = new InflaterInputStream(con.getInputStream(), inflater);
+                } else {
+                    reader = new BufferedInputStream(con.getInputStream());
+                }
 
                 byte[] contents = new byte[1024];
 
@@ -77,6 +101,7 @@ public class SymComManager extends AsyncTask<Request, Void, String> {
                 while ((bytesRead = reader.read(contents)) != -1) {
                     response += new String(contents, 0, bytesRead);
                 }
+                reader.close();
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();

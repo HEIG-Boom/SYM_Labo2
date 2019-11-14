@@ -18,8 +18,8 @@ import ch.heigvd.sym.labo2.comm.SymComManager;
  */
 public class AsynchronousActivity extends AppCompatActivity {
     // Graphics components
-    private EditText editTextArea;
-    private TextView requestTextArea;
+    private EditText editText;
+    private TextView responseText;
 
     /**
      * Method called on creation of the activity.
@@ -32,20 +32,21 @@ public class AsynchronousActivity extends AppCompatActivity {
         // Load the layout
         setContentView(R.layout.activity_asynchronous);
 
-        editTextArea = findViewById(R.id.editText);
-        requestTextArea = findViewById(R.id.responseText);
+        editText = findViewById(R.id.editText);
+        responseText = findViewById(R.id.responseText);
+
         Button sendBtn = findViewById(R.id.sendButton);
 
-        requestTextArea.setMovementMethod(new ScrollingMovementMethod());
+        responseText.setMovementMethod(new ScrollingMovementMethod());
 
         sendBtn.setOnClickListener((v) -> {
             SymComManager mcm = new SymComManager();
-            HashMap<String, String> headers = new HashMap();
+            HashMap<String, String> headers = new HashMap<>();
             headers.put("Content-Type", "text/plain");
-            Request request = new Request("http://sym.iict.ch/rest/txt", editTextArea.getText().toString(), headers);
+            Request request = new Request("http://sym.iict.ch/rest/txt", editText.getText().toString(), headers);
             mcm.setCommunicationEventListener(
                     response -> {
-                        requestTextArea.setText(response);
+                        responseText.setText(response);
                         return true;
                     }
             );

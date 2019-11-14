@@ -10,5 +10,9 @@
     <string name="select_author">Select an author :</string>
     <string name="authors_post">Authors post</string>
     <string name="send">Send</string>
+    <string name="objectTitle">Object Activity</string>
+    <string name="objectFirstName">First name :</string>
+    <string name="objectName">Last name :</string>
+    <string name="objectPhoneNumber">Phone :</string>
 
 </resources>
