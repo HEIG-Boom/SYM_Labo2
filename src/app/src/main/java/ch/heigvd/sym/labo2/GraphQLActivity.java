@@ -38,6 +38,11 @@ public class GraphQLActivity extends AppCompatActivity {
     private LinearLayout postsVerticalLayout;
     private List<Author> allAuthors = new ArrayList<>();
 
+    /**
+     * Populates the spinner with all authors and display all author's posts
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

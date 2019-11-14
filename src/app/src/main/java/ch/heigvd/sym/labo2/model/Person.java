@@ -34,6 +34,7 @@ public class Person {
 
     /**
      * Get the person's last name
+     *
      * @return Person's last name
      */
     public String getName() {
@@ -42,6 +43,7 @@ public class Person {
 
     /**
      * Get the person's first name
+     *
      * @return Person's first name
      */
     public String getFirstname() {
@@ -50,6 +52,7 @@ public class Person {
 
     /**
      * Get the person's middle name
+     *
      * @return Person's middle name
      */
     public String getMiddlename() {
@@ -58,6 +61,7 @@ public class Person {
 
     /**
      * Get the person's gender name
+     *
      * @return Person's gender name
      */
     public String getGender() {
@@ -66,6 +70,7 @@ public class Person {
 
     /**
      * Get the person's phone name
+     *
      * @return Person's phone name
      */
     public String getPhone() {

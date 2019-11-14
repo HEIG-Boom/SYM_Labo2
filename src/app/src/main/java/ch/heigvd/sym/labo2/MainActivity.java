@@ -6,6 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+/**
+ * Main activity class used to display all buttons for other activities
+ *
+ * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
+ * @version 1.0
+ * @since 2019-11-08
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Button asynchronousBtn = null;
@@ -14,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
     private Button graphQLBtn = null;
     private Button objectBtn = null;
 
+    /**
+     * Set up buttons used to create other activities
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
