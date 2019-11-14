@@ -1,11 +1,7 @@
 package ch.heigvd.sym.labo2;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.os.Build;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +9,10 @@ import android.widget.TextView;
 
 import android.os.Bundle;
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,13 +36,14 @@ import ch.heigvd.sym.labo2.comm.SymComManager;
  */
 public class DelayedActivity extends AppCompatActivity {
     // Rate at which to try again when no internet connectivity
-    private static final int SCHEDULE_RATE = 5;
+    private static final int SCHEDULE_RATE = 2;
+    private static final String SERVER = "http://sym.iict.ch/rest/txt";
 
     // Graphics components
     private EditText editTextArea;
     private TextView requestTextArea;
 
-    // List of requests
+    // Queue of requests
     List<Request> requests = new LinkedList<>();
 
     /**
@@ -71,29 +72,40 @@ public class DelayedActivity extends AppCompatActivity {
             // Create request and store it in request list
             HashMap<String, String> headers = new HashMap<>();
             headers.put("Content-Type", "text/plain");
-            Request request = new Request("http://sym.iict.ch/rest/txt", editTextArea.getText().toString(), headers);
+            Request request = new Request(SERVER, editTextArea.getText().toString(), headers);
 
             requests.add(request);
         });
     }
 
     /**
-     * Check whether the network is available
+     * Check whether the network is available by connecting to web socket
+     * <p>
+     * source: https://stackoverflow.com/questions/1560788/how-to-check-internet-access-on-android-inetaddress-never-times-out?page=1&tab=votes#tab-top
      *
      * @return false if no interface is connected, true if one is
      */
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private boolean isNetworkAvailable() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    public boolean isNetworkAvailable() {
+        int timeoutMs = 200;
+        Socket sock = new Socket();
 
-        return cm.isDefaultNetworkActive();
+        try {
+            SocketAddress socketAddress = new InetSocketAddress("8.8.8.8", 53);
+            // Try to connect
+            sock.connect(socketAddress, timeoutMs);
+            sock.close();
+
+            return true;
+        } catch (IOException e) {
+            // Return false if connection went wrong
+            return false;
+        }
     }
 
     /**
      * Executed periodically, send all requests in the list if the network
      * is available
      */
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void tryAndSendAllRequests() {
         // If there are requests in the queue
         if (!requests.isEmpty()) {
@@ -103,6 +115,9 @@ public class DelayedActivity extends AppCompatActivity {
                 for (Request request : requests) {
                     SymComManager scm = new SymComManager();
                     scm.setCommunicationEventListener((response) -> {
+                        // Log response
+                        System.out.println("Delayed response: " + response);
+                        // Display response in terminal
                         requestTextArea.setText(response);
                         return true;
                     });
