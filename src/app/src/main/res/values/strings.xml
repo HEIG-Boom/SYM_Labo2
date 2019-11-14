@@ -7,6 +7,8 @@
     <string name="graphql_activity">GraphQL Activity</string>
     <string name="delayed_activity_title">Delayed Activity</string>
     <string name="write_request">Write your text :</string>
+    <string name="select_author">Select an author :</string>
+    <string name="authors_post">Authors post</string>
     <string name="send">Send</string>
 
 </resources>
