@@ -22,20 +22,15 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
-import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -45,7 +40,7 @@ import ch.heigvd.sym.labo2.comm.SymComManager;
 import ch.heigvd.sym.labo2.model.Person;
 
 /**
- * Object activity class used to transfer Java Object with the server
+ * Object activity class used to exchange Java Object with the server
  *
  * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
  * @version 1.0
