@@ -15,6 +15,10 @@ import ch.heigvd.sym.labo2.comm.SymComManager;
 
 /**
  * Asynchronous activity class used to make asynchronous communication to the server
+ *
+ * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
+ * @version 1.0
+ * @since 2019-11-08
  */
 public class AsynchronousActivity extends AppCompatActivity {
     // Graphics components

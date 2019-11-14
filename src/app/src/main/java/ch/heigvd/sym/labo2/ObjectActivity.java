@@ -40,6 +40,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import ch.heigvd.sym.labo2.comm.Request;
 import ch.heigvd.sym.labo2.comm.SymComManager;
+import ch.heigvd.sym.labo2.model.Person;
 
 public class ObjectActivity extends AppCompatActivity {
 

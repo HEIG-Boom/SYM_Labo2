@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo2;
+package ch.heigvd.sym.labo2.model;
 
 public class Person {
     private String name;
